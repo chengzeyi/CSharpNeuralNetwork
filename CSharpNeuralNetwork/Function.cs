@@ -14,8 +14,8 @@ namespace CSharpNeuralNetwork
     /// <summary>
     /// Function that receives two doubles and returns a double.
     /// </summary>
-    /// <param name="paramA">Parameter a.</param>
-    /// <param name="paramB">Parameter b.</param>
+    /// <param name="paramA">Parameter A.</param>
+    /// <param name="paramB">Parameter B.</param>
     /// <returns>The return value.</returns>
     public delegate double BiDoubleFunction(double paramA, double paramB);
 
