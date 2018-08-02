@@ -97,6 +97,9 @@ namespace CSharpNeuralNetwork
         /// </summary>
         public static void TestNeuralNetwork()
         {
+            // Create a new neural network that has 2 input neurons,
+            // 2 hidden layers with 10 & 1 neurons that the last layer
+            // is the output layer and both layers with no activation function.
             NeuralNetwork network = new NeuralNetwork(
                 2,
                 new[] { 10, 1 },
@@ -105,12 +108,20 @@ namespace CSharpNeuralNetwork
                     new ActivationFunction(ActivationFunction.Type.None),
                     new ActivationFunction(ActivationFunction.Type.None)
                 });
+            // Seed the weights with random values.
             network.SeedWeights(-1, 1);
-            Console.WriteLine(network + "\n");      
+            Console.WriteLine(network + "\n");
 
+            // If you want to use your own KeepTrainingFuncion or ErrorFuncion,
+            // just set the corresponding delegate property of the instance with
+            // your own one here. Otherwise it will use the default funcions.
+
+            // 10 input sets.
             Matrix trainingInput = new Matrix(10, 2);
+            // 10 output sets.
             Matrix trainingOutput = new Matrix(10, 1);
 
+            // Create random training sets.
             Random random = new Random();
             for (int i = 0; i < trainingInput.Height; i++)
             {
@@ -131,6 +142,8 @@ namespace CSharpNeuralNetwork
             Console.WriteLine(network.Forward(trainingInput) + "\n");
 
             Console.WriteLine("Training...");
+            // learning Rate: 0.2.
+            // printToConsole: true.
             network.Train(0.2, trainingInput, trainingOutput, true);
             Console.WriteLine("Done!" + "\n");
 
@@ -139,9 +152,12 @@ namespace CSharpNeuralNetwork
             Console.WriteLine("Result after training:");
             Console.WriteLine(network.Forward(trainingInput) + "\n");
 
+            // 10 input sets.
             Matrix predictionInput = new Matrix(10, 2);
+            // 10 output sets.
             Matrix predictionOutput = new Matrix(10, 1);
 
+            // Create random prediction sets.
             for (int i = 0; i < predictionInput.Height; i++)
             {
                 predictionInput[i, 0] = random.NextDouble();
