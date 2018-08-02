@@ -98,8 +98,9 @@ namespace CSharpNeuralNetwork
         public static void TestNeuralNetwork()
         {
             // Create a new neural network that has 2 input neurons,
-            // 2 hidden layers with 10 & 1 neurons that the last layer
-            // is the output layer and both layers with no activation function.
+            // a hidden layer with 10 neurons and an output layer with
+            // 1 neuron. Both the hidden layer and the output layer
+            // have no activation function.
             NeuralNetwork network = new NeuralNetwork(
                 2,
                 new[] { 10, 1 },
@@ -116,10 +117,10 @@ namespace CSharpNeuralNetwork
             // just set the corresponding delegate property of the instance with
             // your own one here. Otherwise it will use the default funcions.
 
-            // 10 input sets.
-            Matrix trainingInput = new Matrix(10, 2);
-            // 10 output sets.
-            Matrix trainingOutput = new Matrix(10, 1);
+            // 20 input sets.
+            Matrix trainingInput = new Matrix(20, 2);
+            // 20 output sets.
+            Matrix trainingOutput = new Matrix(20, 1);
 
             // Create random training sets.
             Random random = new Random();

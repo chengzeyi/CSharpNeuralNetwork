@@ -22,8 +22,9 @@ Just add all the source code to your project and you can get started. The class 
 
 ```C#
 // Create a new neural network that has 2 input neurons,
-// 2 hidden layers with 10 & 1 neurons that the last layer
-// is the output layer and both layers with no activation function.
+// a hidden layer with 10 neurons and an output layer with
+// 1 neuron. Both the hidden layer and the output layer
+// have no activation function.
 NeuralNetwork network = new NeuralNetwork(
     2,
     new[] { 10, 1 },
@@ -52,7 +53,7 @@ for (int i = 0; i < trainingInput.Height; i++)
     trainingInput[i, 0] = random.NextDouble();
     trainingInput[i, 1] = random.NextDouble();
 
-    trainingOutput[i, 0] = Math.Sin(trainingInput[i, 0] + trainingInput[i, 1]);
+    trainingOutput[i, 0] = (trainingInput[i, 0] + trainingInput[i, 1]) / 2;
 }
 
 Console.WriteLine("Training input sets:");
@@ -87,7 +88,7 @@ for (int i = 0; i < predictionInput.Height; i++)
     predictionInput[i, 0] = random.NextDouble();
     predictionInput[i, 1] = random.NextDouble();
 
-    predictionOutput[i, 0] = Math.Sin(predictionInput[i, 0] + predictionInput[i, 1]);
+    predictionOutput[i, 0] = (predictionInput[i, 0] + predictionInput[i, 1]) / 2;
 }
 
 Console.WriteLine("Prediction input sets:");
@@ -103,4 +104,4 @@ Console.WriteLine(network.Forward(predictionInput) + "\n");
 
 ## References
 
-This project is inspired by sebig3000's MachineLearning<https://github.com/sebig3000/MachineLearning>. I made a C# version of it and fixed bugs and polished it. Several matrix operation methods are replaced by overridden operators and new operations are added. The way to control the KeepTraining method of class NeuralNetwork is also changed and the way to calculate the error is also adjustable now, using delegate properties to replace the default function.
+This project is inspired by sebig3000's [MachineLearning](https://github.com/sebig3000/MachineLearning). I made a C# version of it and fixed bugs and polished it. Several matrix operation methods are replaced by overridden operators and new operations are added. The way to control the KeepTraining method of class NeuralNetwork is also changed and the way to calculate the error is also adjustable now, using delegate properties to replace the default function.
