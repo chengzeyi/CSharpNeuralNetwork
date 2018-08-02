@@ -14,7 +14,7 @@ This project is written in pure C# without any usage of none standard libraries.
 
 ### Installation
 
-Just add all the source code to your project and you can get started. The class "Tester" has basic examples of creating a neuron network instance and training and predicting.
+Just add all the source code to your project and you can get started. The class "Tester" has basic examples of creating a neural network instance for training and predicting.
 
 ## Code Example
 
