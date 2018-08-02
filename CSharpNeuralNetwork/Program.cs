@@ -6,7 +6,9 @@ namespace CSharpNeuralNetwork
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Tester.TestMatrix();
+            Tester.TestNeuralNetwork();
+            Console.ReadKey();
         }
     }
 }
